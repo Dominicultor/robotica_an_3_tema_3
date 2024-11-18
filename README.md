@@ -87,3 +87,9 @@ ISR (SPI_STC_vect): Această funcție este apelată automat atunci când slave p
 - slave gestionează logica jocului și răspunde la comenzile primite de la master.
 - Controlează starea LED-urilor și butoanele pentru fiecare jucător.
 - Comunicarea bidirecțională prin SPI permite master-ului să transmită comenzi și să primească informații de la slave, permițând o colaborare eficientă în timpul jocului.
+
+
+
+# Poze a setupului fizic
+![WhatsApp Image 2024-11-18 at 19 39 23_5cd3434a](https://github.com/user-attachments/assets/bc9dec4d-d6cd-487d-9541-8930b494f71e)
+
