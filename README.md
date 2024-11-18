@@ -43,9 +43,9 @@ Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează
 - Configurează servomotorul la poziția de start.
 
  ### 5.loop()
-- Controlează fluxul principal al jocului:
-Dacă jocul nu este pornit (gameOn este false), afișează starea inițială și așteaptă comanda de start de la dispozitivul slave.
-Dacă jocul este pornit (gameOn este true), controlează runda curentă, verifică dacă au fost primite răspunsuri corecte de la jucători, actualizează punctajele, controlează servomotorul, și gestionează starea jocului în funcție de timpul scurs.
+Controlează fluxul principal al jocului:
+  - Dacă jocul nu este pornit (gameOn este false), afișează starea inițială și așteaptă comanda de start de la dispozitivul slave.
+  - Dacă jocul este pornit (gameOn este true), controlează runda curentă, verifică dacă au fost primite răspunsuri corecte de la jucători, actualizează punctajele, controlează servomotorul, și gestionează starea jocului în funcție de timpul scurs.
 
 ### 1.delayMillis()
 O funcție care blochează execuția pentru un anumit număr de milisecunde, folosind millis() pentru a calcula timpul.
