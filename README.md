@@ -104,5 +104,5 @@ ISR (SPI_STC_vect): Această funcție este apelată automat atunci când slave p
 ![WhatsApp Image 2024-11-18 at 19 15 24_f6e21fb1](https://github.com/user-attachments/assets/54ca3936-3cac-4d0a-82c1-593f9caea381)
 
 
-
-https://youtu.be/6Zd-KeOgaac
+# Video cu functionalitatea montajului fizic
+[Watch video here!](https://youtu.be/6Zd-KeOgaac)
