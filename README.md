@@ -57,7 +57,8 @@ Comportamentul său este gestionat în principal în funcția de întrerupere IS
 
 ## Definirea variabilelor pentru slave
 
-'''volatile boolean received;
+'''
+volatile boolean received;
 volatile byte slaveReceived, slaveSend = IGNORE;
 '''
 
