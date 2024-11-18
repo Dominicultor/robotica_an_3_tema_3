@@ -101,7 +101,7 @@ ISR (SPI_STC_vect): Această funcție este apelată automat atunci când slave p
 2. Verifică comenzile primite prin SPI (slaveReceived) pentru a stabili culoarea LED-urilor și a inițializa alte acțiuni.
 3.  Utilizează variabila slaveSend pentru a comunica master-ului rezultatele acțiunilor sale, de exemplu, dacă jucătorul a ghicit corect culoarea (collorGuessed == correctLed).
 
-#Scopul slave in joc
+# Scopul slave in joc
 - slave gestionează logica jocului și răspunde la comenzile primite de la master.
 - Controlează starea LED-urilor și butoanele pentru fiecare jucător.
 - Comunicarea bidirecțională prin SPI permite master-ului să transmită comenzi și să primească informații de la slave, permițând o colaborare eficientă în timpul jocului.
