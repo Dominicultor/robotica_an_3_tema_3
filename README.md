@@ -55,10 +55,48 @@ O funcție care blochează execuția pentru un anumit număr de milisecunde, fol
 Slave răspunde la comenzile de la master și transmite datele înapoi folosind SPI.
 Comportamentul său este gestionat în principal în funcția de întrerupere ISR (Interrupt Service Routine), ISR (SPI_STC_vect).
 
-## Definirea variabilelor pentru slave
+## 1. Definirea variabilelor pentru slave
 
 ```
 volatile boolean received;
 volatile byte slaveReceived, slaveSend = IGNORE;
 ```
+- received: Variabilă volatile folosită pentru a indica dacă slave a primit date de la master.
+- slaveReceived: Variabilă volatile care stochează valoarea primită de slave de la master prin SPI.
+- slaveSend: Variabilă care conține valoarea pe care slave o va trimite către master ca răspuns. Inițial, este setată la IGNORE (valoare definită pentru a indica lipsa unei comenzi utile).
 
+## 2. Setarea SPI pentru slave în setup():
+```
+pinMode(MISO, OUTPUT); // Configurare pin pentru MISO (Master In Slave Out)
+SPCR |= _BV(SPE); // Activarea modulului SPI ca slave
+received = false; // Inițializare flag de recepție
+SPI.attachInterrupt(); // Activarea întreruperii pentru recepția de date
+```
+- pinMode(MISO, OUTPUT): Configurarea pinului MISO ca ieșire. Acesta este linia prin care slave trimite date către master.
+- SPCR |= _BV(SPE): Activarea modulului SPI ca slave (setarea bitului SPE - SPI Enable).
+- SPI.attachInterrupt(): Activarea întreruperii atunci când slave primește date de la master.
+
+  ## 3. Funcția de întrerupere ISR (SPI_STC_vect):
+```
+ISR (SPI_STC_vect)
+{
+  slaveReceived = SPDR;   // Citirea datelor primite de la master
+  SPDR = slaveSend;       // Setarea datelor ce vor fi trimise către master la următoarea transmisie
+  received = true;        // Setarea flag-ului pentru a indica că datele au fost primite
+}
+```
+
+ISR (SPI_STC_vect): Această funcție este apelată automat atunci când slave primește date de la master.
+- slaveReceived = SPDR;: Citirea datelor primite de la master. SPDR este registrul de date SPI și conține valoarea transmisă de master.
+- SPDR = slaveSend;: Setarea valorii pe care slave o va trimite master-ului în următoarea transmisie.
+- received = true;: Setează received pe true pentru a indica că slave a primit date.
+
+## 4. Comportamentul slave în funcția loop():
+
+- slave procesează datele primite de la master și îndeplinește diferite acțiuni în funcție de valoarea recepționată:
+
+- Dacă gameOn este false (jocul nu este activ), slave verifică dacă a primit comanda de pornire a jocului (GAME_START) și pregătește jocul pentru start.
+-- Dacă gameOn este true (jocul este activ), slave:
+-- Controlează LED-urile și verifică intrările de la butoane.
+-- Verifică comenzile primite prin SPI (slaveReceived) pentru a stabili culoarea LED-urilor și a inițializa alte acțiuni.
+-- Utilizează variabila slaveSend pentru a comunica master-ului rezultatele acțiunilor sale, de exemplu, dacă jucătorul a ghicit corect culoarea (collorGuessed == correctLed).
