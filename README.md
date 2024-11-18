@@ -49,3 +49,15 @@ Controlează fluxul principal al jocului:
 
 ### 6.delayMillis()
 O funcție care blochează execuția pentru un anumit număr de milisecunde, folosind millis() pentru a calcula timpul.
+
+
+# Codul Slave
+Slave răspunde la comenzile de la master și transmite datele înapoi folosind SPI.
+Comportamentul său este gestionat în principal în funcția de întrerupere ISR (Interrupt Service Routine), ISR (SPI_STC_vect).
+
+## Definirea variabilelor pentru slave
+
+'''volatile boolean received;
+volatile byte slaveReceived, slaveSend = IGNORE;
+'''
+
