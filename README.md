@@ -9,7 +9,6 @@ Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează
 - LiquidCrystal.h: Pentru controlul afișajului LCD.
 - Servo.h: Pentru controlul servomotorului.
 - SPI.h: Pentru comunicarea SPI între master și dispozitivul slave.
-- 
 ### Pini și Definiții
 
 - BAUD_RATE: Viteza de transmisie serială (9600 baud).
@@ -21,5 +20,5 @@ Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează
 
 ### Structuri și Variabile Globale
 
-Structura Players stochează numele și punctele fiecărui jucător.
-Variabilele globale gestionareaza stările jocului, punctajele, timpul, și comunicarea SPI.
+- Structura Players stochează numele și punctele fiecărui jucător.
+- Variabilele globale gestionareaza stările jocului, punctajele, timpul, și comunicarea SPI.
