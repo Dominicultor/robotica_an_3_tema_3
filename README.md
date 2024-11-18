@@ -93,10 +93,10 @@ ISR (SPI_STC_vect): Această funcție este apelată automat atunci când slave p
 
 ## 4. Comportamentul slave în funcția loop():
 
-- slave procesează datele primite de la master și îndeplinește diferite acțiuni în funcție de valoarea recepționată:
+ slave procesează datele primite de la master și îndeplinește diferite acțiuni în funcție de valoarea recepționată:
 
 - Dacă gameOn este false (jocul nu este activ), slave verifică dacă a primit comanda de pornire a jocului (GAME_START) și pregătește jocul pentru start.
--- Dacă gameOn este true (jocul este activ), slave:
--- Controlează LED-urile și verifică intrările de la butoane.
--- Verifică comenzile primite prin SPI (slaveReceived) pentru a stabili culoarea LED-urilor și a inițializa alte acțiuni.
--- Utilizează variabila slaveSend pentru a comunica master-ului rezultatele acțiunilor sale, de exemplu, dacă jucătorul a ghicit corect culoarea (collorGuessed == correctLed).
+- Dacă gameOn este true (jocul este activ), slave:
+1. Controlează LED-urile și verifică intrările de la butoane.
+2. Verifică comenzile primite prin SPI (slaveReceived) pentru a stabili culoarea LED-urilor și a inițializa alte acțiuni.
+3.  Utilizează variabila slaveSend pentru a comunica master-ului rezultatele acțiunilor sale, de exemplu, dacă jucătorul a ghicit corect culoarea (collorGuessed == correctLed).
