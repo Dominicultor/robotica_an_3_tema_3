@@ -1,9 +1,5 @@
-# Codul Master
-Codul master controlează un joc în care jucătorii concurează reacționând la o culoare afișată printr-un sistem RGB.
-Interacțiunea are loc printr-un afișaj LCD, un servomotor și o comunicare cu un dispozitiv slave folosind SPI (Serial Peripheral Interface).
-Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează stările jocului pe afișaj.
 
-## Componente utilizate
+# Componente fizice utilizate
 - 6x LED-uri (2 grupuri de câte 3 leduri, în cadrul unui grup trebuie să avem culori diferite)
 - 2x LED RGB (1 pentru fiecare jucător)
 - 6x butoane (3 pentru fiecare jucător)
@@ -12,6 +8,13 @@ Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează
 - 2x Breadboard
 - Fire de legatura
 - 2x Arduino Uno
+
+
+# Codul Master
+Codul master controlează un joc în care jucătorii concurează reacționând la o culoare afișată printr-un sistem RGB.
+Interacțiunea are loc printr-un afișaj LCD, un servomotor și o comunicare cu un dispozitiv slave folosind SPI (Serial Peripheral Interface).
+Jocul urmărește scorurile jucătorilor, gestionează rundele și actualizează stările jocului pe afișaj.
+
 
 ### Biblioteci Incluse
 
